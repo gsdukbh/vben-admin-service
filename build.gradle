@@ -60,10 +60,10 @@ dependencies {
     implementation "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
     // jwt
     implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
-    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jwtVersion}",
-            // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
-            "org.bouncycastle:bcprov-jdk15on:${bouncycastleVersion}"
-    "io.jsonwebtoken:jjwt-gson:${jwtVersion}"
+    // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+    implementation "org.bouncycastle:bcprov-jdk15on:${bouncycastleVersion}"
+    implementation "io.jsonwebtoken:jjwt-impl:${jwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-gson:${jwtVersion}"
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-security'
