@@ -38,8 +38,30 @@ if (!resData) {
 const {code, data, result, message} = resData;
 
 // 这里逻辑可以根据项目进行修改
-const hasSuccess = resData && Reflect.has(resData, 'code') && code === ResultEnum.SUCCESS;
+const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
 if (hasSuccess) {
-    return data; // 返回data 
+    return data;
+}
+```
+
+3. 找到`src/enums/httpEnum.ts` 文件，并在其中找到以下代码：
+
+```ts
+export enum ResultEnum {
+    SUCCESS = 0,
+    ERROR = 1,
+    TIMEOUT = 401,
+    TYPE = 'success',
+}
+  ```
+
+并修改为:
+
+```ts
+export enum ResultEnum {
+    SUCCESS = 200,
+    ERROR = 500,
+    TIMEOUT = 401,
+    TYPE = 'success',
 }
 ```
