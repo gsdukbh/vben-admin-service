@@ -15,6 +15,18 @@ configurations {
 }
 
 repositories {
+    // 使用阿里云开源镜像代理 https://developer.aliyun.com/mvn/guide
+    maven {
+        url 'https://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/spring/'
+    }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven {
+        url 'https://maven.aliyun.com/repository/spring-plugin'
+    }
+    mavenLocal()
     mavenCentral()
 }
 
@@ -48,7 +60,7 @@ dependencies {
     implementation "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
     // jwt
     implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
-    runtimeOnly 'io.jsonwebtoken:jjwt-impl:${jwtVersion}',
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jwtVersion}",
             // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
             "org.bouncycastle:bcprov-jdk15on:${bouncycastleVersion}"
     "io.jsonwebtoken:jjwt-gson:${jwtVersion}"

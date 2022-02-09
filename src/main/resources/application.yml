@@ -5,7 +5,7 @@ spring:
     basename: i18n
     encoding: UTF-8
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://{your mysql ip}:3306/test_em?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: # your username
     password: # your password
@@ -26,3 +26,6 @@ env:
     tokenPrefix: 'Bearer'
     privateKey: classpath:private.pem
     publicKey: classpath:public.pem
+mybatis-plus:
+  global-config:
+    banner: false
