@@ -30,40 +30,40 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    gsonVersion = '2.8.9'
-    lang3Version = '3.12.0'
-    springdocVersion = '1.6.5'
-    jwtVersion = '0.11.2'
-    bouncycastleVersion = '1.69'
-    druidVersion = '1.2.8'
-    mybatisVersion = '2.2.2'
-    mybatisPlusVersion = '3.5.1'
-    freemarkerVersion = '2.3.31'
-}
+//ext {
+//    gsonVersion = '2.8.9'
+//    lang3Version = '3.12.0'
+//    springdocVersion = '1.6.5'
+//    jwtVersion = '0.11.2'
+//    bouncycastleVersion = '1.69'
+//    druidVersion = '1.2.8'
+//    mybatisVersion = '2.2.2'
+//    mybatisPlusVersion = '3.5.1'
+//    freemarkerVersion = '2.3.31'
+//}
 
 
 dependencies {
 
-    implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
-    implementation "com.baomidou:mybatis-plus-generator:${mybatisPlusVersion}"
-    implementation "org.freemarker:freemarker:${freemarkerVersion}"
-    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}"
-    implementation "com.alibaba:druid:${druidVersion}"
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.1'
+    implementation 'com.baomidou:mybatis-plus-generator:3.5.1'
+    implementation 'org.freemarker:freemarker:2.3.31'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+    implementation 'com.alibaba:druid:1.2.8'
     //mysql
     runtimeOnly 'mysql:mysql-connector-java'
 
-    implementation "com.google.code.gson:gson:${gsonVersion}"
-    implementation "org.apache.commons:commons-lang3:${lang3Version}"
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 
     // spring doc
-    implementation "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.5'
     // jwt
-    implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
     // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
-    implementation "org.bouncycastle:bcprov-jdk15on:${bouncycastleVersion}"
-    implementation "io.jsonwebtoken:jjwt-impl:${jwtVersion}"
-    implementation "io.jsonwebtoken:jjwt-gson:${jwtVersion}"
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.69'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-gson:0.11.2'
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-security'

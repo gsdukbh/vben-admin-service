@@ -21,7 +21,7 @@ public class ResultData<T> implements Serializable {
     @Schema(description = "返回信息")
     private String message;
     @Schema(description = "返回数据")
-    private T data;
+    private T result;
 
     @Schema(description = "时间戳")
     private Long timeStamp;
@@ -29,10 +29,10 @@ public class ResultData<T> implements Serializable {
     public ResultData() {
     }
 
-    public ResultData(int code, String message, T data) {
+    public ResultData(int code, String message, T result) {
         this.code = code;
         this.message = message;
-        this.data = data;
+        this.result = result;
         this.timeStamp = System.currentTimeMillis();
     }
 

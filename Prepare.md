@@ -1,5 +1,5 @@
 ## 准备
-1. 在 `vue-vben-admin` 项目中，打开 `src/utils/http/axios/index.ts` 文件，并在其中找到以下代码：
+1. ~~在 `vue-vben-admin` 项目中，打开 `src/utils/http/axios/index.ts` 文件，并在其中找到以下代码：~~,不需要更改
 
 ```ts
 const {data} = res;
@@ -11,7 +11,7 @@ if (!data) {
 const {code, result, message} = data;
 ```
 
-并更改为：
+~~并更改为：~~
 
 ```ts
 const resData = res.data;
