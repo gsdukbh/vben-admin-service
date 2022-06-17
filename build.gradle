@@ -49,25 +49,25 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     implementation "org.flywaydb:flyway-mysql"
 
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.1'
-    implementation 'com.baomidou:mybatis-plus-generator:3.5.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
+    implementation 'com.baomidou:mybatis-plus-generator:3.5.2'
     implementation 'org.freemarker:freemarker:2.3.31'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-    implementation 'com.alibaba:druid:1.2.8'
+    implementation 'com.alibaba:druid:1.2.11'
     //mysql
     runtimeOnly 'mysql:mysql-connector-java'
 
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
 
     // spring doc
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.5'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
     // jwt
-    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
     // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.69'
-    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
-    implementation 'io.jsonwebtoken:jjwt-gson:0.11.2'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-gson:0.11.5'
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-security'
