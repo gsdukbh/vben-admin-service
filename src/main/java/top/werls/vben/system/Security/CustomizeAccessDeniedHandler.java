@@ -5,7 +5,7 @@ import com.google.gson.Gson;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
-import top.werls.vben.common.ResultData;
+import top.werls.vben.common.utils.ResultData;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

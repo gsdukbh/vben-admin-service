@@ -3,7 +3,7 @@ package top.werls.vben.system.exception;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.werls.vben.common.ResultData;
+import top.werls.vben.common.utils.ResultData;
 
 import javax.servlet.http.HttpServletResponse;
 

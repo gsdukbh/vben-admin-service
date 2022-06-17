@@ -33,7 +33,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(() -> "ROLE_USER");
-        User user = new User(username, "$2a$10$ff5LAedpha10wc77nKjtc.J0FlkP4mAMMVvkVQV1H57Y7p0ekqo8e", true, true, true, true, authorities);
+        User user = new User(username, "$2a$10$ff5LAedpha10wc77nKjtc.J0FlkP4mAMMVvkVQV1H57Y7p0ekqo8e",
+                true, true, true, true, authorities);
         return user;
     }
 

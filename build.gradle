@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.3'
+    id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -44,6 +44,10 @@ repositories {
 
 
 dependencies {
+
+    //sql 版本控制
+    implementation 'org.flywaydb:flyway-core'
+    implementation "org.flywaydb:flyway-mysql"
 
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.1'
     implementation 'com.baomidou:mybatis-plus-generator:3.5.1'

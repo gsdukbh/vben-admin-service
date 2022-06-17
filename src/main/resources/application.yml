@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: ${env.appName}
   messages:
@@ -6,9 +8,17 @@ spring:
     encoding: UTF-8
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://{your mysql ip}:3306/test_em?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://{your mysql ip}:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: # your username
     password: # your password
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+    locations:
+      - classpath:sql
+    schemas:
+      - vben_admin
+    clean-disabled: true
 logging:
   config: classpath:logback-spring-dev.xml
   file:
@@ -29,3 +39,4 @@ env:
 mybatis-plus:
   global-config:
     banner: false
+

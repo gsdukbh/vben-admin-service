@@ -1,5 +1,7 @@
 package top.werls.vben.system.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -15,6 +17,7 @@ import java.io.Serializable;
 public class SysUser extends BaseEntity {
     @Serial
     private static final long serialVersionUID = 1L;
+    @TableId(type = IdType.ASSIGN_ID)
     private Long uid;
 
     @Schema(description = "用户名", example = "admin", required = true)
