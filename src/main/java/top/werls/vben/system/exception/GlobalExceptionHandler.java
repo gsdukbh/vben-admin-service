@@ -1,6 +1,7 @@
 package top.werls.vben.system.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import top.werls.vben.common.utils.ResultData;
@@ -18,9 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResultData<String > defaultExceptionHandler(Exception e, HttpServletResponse response) {
+    public ResultData<String> defaultExceptionHandler(Exception e, HttpServletResponse response) {
         log.error("Exception:{}", e.getMessage());
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        return ResultData.systemError();
+        return ResultData.systemError(e.getMessage());
     }
+
 }

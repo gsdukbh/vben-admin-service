@@ -7,7 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import top.werls.vben.system.entity.SysUser;
+import top.werls.vben.system.service.SysUserService;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +18,9 @@ import java.util.List;
 @Slf4j
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
+    @Resource
+    private SysUserService sysUserService;
 
     /**
      * Locates the user based on the username. In the actual implementation, the search
@@ -30,6 +36,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        SysUser sysUser = sysUserService.getByUsername(username);
+        if (sysUser == null) {
+            throw new UsernameNotFoundException("用户不存在");
+        }
+
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(() -> "ROLE_USER");

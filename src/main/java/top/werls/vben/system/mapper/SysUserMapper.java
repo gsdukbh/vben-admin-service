@@ -15,8 +15,16 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据用户名查询用户
+     *
      * @param uid
      * @return
      */
-    SysUser getAllByUid(@Param("uid") String uid);
+    SysUser getByUid(@Param("uid") String uid);
+
+    /**
+     * 根据用户名查询用户
+     * @param username 用户名
+     * @return 用户信息
+     */
+    SysUser getByUsername(@Param("username") String username);
 }

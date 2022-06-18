@@ -1,5 +1,7 @@
 package top.werls.vben.system.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -16,6 +18,7 @@ public class SysRole extends BaseEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 211L;
 
+    @TableId(type = IdType.ASSIGN_ID)
     private Long rid;
     /**
      * 角色名称

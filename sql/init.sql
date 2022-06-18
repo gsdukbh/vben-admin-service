@@ -32,8 +32,8 @@ create table vben_sys_user_role
 create table vben_sys_role
 (
     rid         int(11)      not null auto_increment,
-    name        varchar(200) not null unique,
-    value       varchar(200) not null,
+    name        varchar(200) not null ,
+    value       varchar(200) not null unique,
     description varchar(200),
     createTime  datetime     not null default current_timestamp,
     updateTime  datetime     not null default current_timestamp,
