@@ -16,8 +16,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class SysUserRole extends BaseEntity {
     private static final long serialVersionUID = -898410089841008984L;
-    @TableId(type = IdType.NONE)
     private Long uid;
-    @TableId(type = IdType.NONE)
     private Long rid;
 }

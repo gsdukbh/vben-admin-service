@@ -14,21 +14,21 @@ import java.util.Collections;
  */
 public class Generator {
     public static void main(String[] args) {
-        FastAutoGenerator.create("jdbc:sqlserver://127.0.0.1:1433;DatabaseName=ruihao", "sa", "lijiawei.12@")
+        FastAutoGenerator.create("jdbc:mysql://127.0.0.1:3306/vben_admin", "root", "2f35ArY2Q3HUC3Wq28J1")
                 .globalConfig(builder -> {
                     builder.author("Jiawei Lee") // 设置作者
                             .fileOverride() // 覆盖已生成文件
                             .outputDir(""); // 指定输出目录
                 })
                 .packageConfig(builder -> {
-                    builder.parent("com.finchina") // 设置父包名
-                            .moduleName("pms") // 设置父包模块名
-                            .pathInfo(Collections.singletonMap(OutputFile.mapperXml, "")); // 设置mapperXml生成路径
+                    builder.parent("top.werls") // 设置
+                            .moduleName("vben") // 设置父包模块名
+                            .pathInfo(Collections.singletonMap(OutputFile.xml, "")); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
                     builder
-                            .addInclude("PMS_Wrk_JobSortingInStock") // 设置需要生成的表名
-                            .addTablePrefix("") // 设置过滤表前缀
+                            .addInclude("") // 设置需要生成的表名
+                            .addTablePrefix("vben") // 设置过滤表前缀
                             .entityBuilder()
                             .enableTableFieldAnnotation()
                             .enableLombok(); // 开启 lombok 模式

@@ -8,7 +8,7 @@ spring:
     encoding: UTF-8
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://{your mysql ip}:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://{your mysql ip}:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: # your username
     password: # your password
   flyway:
@@ -39,4 +39,5 @@ env:
 mybatis-plus:
   global-config:
     banner: false
-
+server:
+  port: 9992

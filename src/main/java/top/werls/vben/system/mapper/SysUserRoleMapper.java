@@ -22,12 +22,12 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      * @param rid 角色id
      * @return 用户列表
      */
-    List<SysUser> getByRid(@Param("rid") String rid);
+    List<SysUser> getByRid(@Param("rid") Long rid);
 
     /**
      * 通过 用户id 获取角色
      * @param uid 用户id
      * @return 角色列表
      */
-    List<SysRole> getByUid(@Param("uid") String uid);
+    List<SysRole> getByUid(@Param("uid") Long uid);
 }

@@ -61,7 +61,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper,SysUser> imple
      */
     @Override
     public SysUser getByUsername(String username) {
-
         return baseMapper.getByUsername(username);
     }
 

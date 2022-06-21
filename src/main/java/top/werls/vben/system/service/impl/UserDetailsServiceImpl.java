@@ -7,7 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
+import top.werls.vben.system.mapper.SysUserMapper;
+import top.werls.vben.system.service.SysUserRoleService;
 import top.werls.vben.system.service.SysUserService;
 
 import javax.annotation.Resource;
@@ -20,7 +23,10 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Resource
-    private SysUserService sysUserService;
+    private SysUserMapper sysUserService;
+
+    @Resource
+    private SysUserRoleService sysUserRoleService;
 
     /**
      * Locates the user based on the username. In the actual implementation, the search
@@ -41,12 +47,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (sysUser == null) {
             throw new UsernameNotFoundException("用户不存在");
         }
-
-
+        List<SysRole> roles = sysUserRoleService.getByUid(sysUser.getUid());
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(() -> "ROLE_USER");
-        User user = new User(username, "$2a$10$ff5LAedpha10wc77nKjtc.J0FlkP4mAMMVvkVQV1H57Y7p0ekqo8e",
-                true, true, true, true, authorities);
+//        authorities.add(() -> "ROLE_USER");
+        for (SysRole role : roles) {
+            authorities.add(role::getValue);
+        }
+        User user = new User(username, sysUser.getPassword(), sysUser.isEnabled()
+                , sysUser.isAccountNonExpired(), sysUser.isCredentialsNonExpired(), sysUser.isAccountNonLocked(), authorities);
         return user;
     }
 
