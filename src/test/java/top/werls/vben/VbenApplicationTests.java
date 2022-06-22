@@ -5,9 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.keygen.Base64StringKeyGenerator;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import top.werls.vben.common.utils.crypto.asymmetric.RSA;
 import top.werls.vben.common.utils.crypto.symmetric.DES;
 
+import javax.annotation.Resource;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
@@ -22,6 +24,9 @@ class VbenApplicationTests {
     private RSAPrivateKey key;
     @Value("${env.jwt.publicKey}")
     private RSAPublicKey publicKey;
+
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     @Test
     void contextLoads() throws Exception {
@@ -44,6 +49,13 @@ class VbenApplicationTests {
         System.out.println(new String(c));
 
         System.out.println(Arrays.toString(DES.generateKey()));
+    }
+
+    @Test
+    void crateAccount() {
+        var password = passwordEncoder.encode("vben123456");
+        System.out.println(password);
+        //$2a$10$QzpKOwpJYX9Wyr9nc711ceJwI5mywTYDTiJnjs5eNwsrDCzErMzZu
     }
 
 }

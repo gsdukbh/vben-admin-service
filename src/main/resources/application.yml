@@ -12,7 +12,7 @@ spring:
     username: # your username
     password: # your password
   flyway:
-    enabled: false
+    enabled: true
     baseline-on-migrate: true
     locations:
       - classpath:sql

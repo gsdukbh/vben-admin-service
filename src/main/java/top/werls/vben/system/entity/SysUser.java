@@ -40,6 +40,8 @@ public class SysUser extends BaseEntity {
     private String realName;
     @Schema(description = "是否启用")
     private boolean enabled;
+    @Schema(description = "主页")
+    private String  homePath;
     @Schema(description = "账户未过期")
     private boolean accountNonExpired;
     @Schema(description = "凭据未过期")

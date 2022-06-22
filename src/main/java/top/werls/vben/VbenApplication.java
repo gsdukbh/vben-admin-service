@@ -20,13 +20,15 @@ public class VbenApplication {
         var databaseUrl = env.getProperty("spring.datasource.url");
         log.info("VbenApplication is running...");
         log.info("""
+                
                 |===========================================================
                 | application.name: {}
                 | application.version: {}
                 | swagger-ui: http://localhost:{}/swagger-ui.html
                 | application web: http://localhost:{}/
                 | database: {}
-                |===========================================================    
+                |=========================================================== 
+                   
                 """, applicationName, version, port, port, databaseUrl);
     }
 

@@ -14,6 +14,7 @@ import top.werls.vben.system.vo.LoginVo;
 import top.werls.vben.system.vo.UserInfoVo;
 
 import javax.annotation.Resource;
+import java.security.Principal;
 
 
 @Slf4j
@@ -30,8 +31,8 @@ public class LoginController {
     }
 
     @GetMapping("/getUserInfo")
-    public ResultData<UserInfoVo> getUserInfo() {
-        return ResultData.success(new UserInfoVo());
+    public ResultData<UserInfoVo> getUserInfo(Principal principal) {
+        return ResultData.success(userService.getUserInfo(principal.getName()));
     }
 
 

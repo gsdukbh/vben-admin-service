@@ -44,6 +44,8 @@ public class UserInfoVo implements java.io.Serializable {
      */
     @Schema(description = "用户主页")
     private String homePath;
+    @Schema(description = "介绍")
+    private String desc;
     /**
      * 角色列表
      */
@@ -64,6 +66,7 @@ public class UserInfoVo implements java.io.Serializable {
         this.username = user.getUsername();
         this.realName = user.getRealName();
         this.avatar = user.getAvatar();
+        this.homePath = user.getHomePath();
         this.roles = roles;
     }
 }

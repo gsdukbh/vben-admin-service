@@ -10,23 +10,29 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.werls.vben.common.utils.JwtTokenUtils;
+import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
 import top.werls.vben.system.mapper.SysUserMapper;
 import top.werls.vben.system.param.LoginParam;
+import top.werls.vben.system.service.SysUserRoleService;
 import top.werls.vben.system.service.SysUserService;
 import top.werls.vben.system.vo.LoginVo;
+import top.werls.vben.system.vo.UserInfoVo;
 
 import javax.annotation.Resource;
+import java.util.Collection;
+import java.util.List;
 
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class SysUserServiceImpl extends ServiceImpl<SysUserMapper,SysUser> implements SysUserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
 
     @Resource
     private UserDetailsServiceImpl userDetailsService;
-
+    @Resource
+    private SysUserRoleService sysUserRoleService;
     @Resource
     private PasswordEncoder passwordEncoder;
     @Resource
@@ -43,7 +49,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper,SysUser> imple
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(param.getUsername());
 
-        if (!passwordEncoder.matches(param.getPassword(), userDetails.getPassword())) {
+        SysUser user = getByUsername(param.getUsername());
+
+        if (!passwordEncoder.matches(user.getSalt() + param.getPassword(), userDetails.getPassword())) {
             throw new BadCredentialsException("密码错误");
         }
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
@@ -63,5 +71,30 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper,SysUser> imple
     public SysUser getByUsername(String username) {
         return baseMapper.getByUsername(username);
     }
+
+    /**
+     * 用户信息
+     *
+     * @param username name
+     * @return {@link UserInfoVo}
+     */
+    @Override
+    public UserInfoVo getUserInfo(String username) {
+        SysUser user = getByUsername(username);
+        List<SysRole> roles = sysUserRoleService.getByUid(user.getUid());
+        return new UserInfoVo(user, roles);
+    }
+
+    /**
+     * 添加用户
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean addUser(SysUser user) {
+        return false;
+    }
+
 
 }
