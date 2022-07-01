@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serial;
+
 /**
  * @author Jiawei Lee
  * @version TODO
@@ -15,6 +17,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class SysUserRole extends BaseEntity {
+    @Serial
     private static final long serialVersionUID = -898410089841008984L;
     private Long uid;
     private Long rid;

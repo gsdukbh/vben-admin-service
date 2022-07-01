@@ -13,7 +13,6 @@ import top.werls.vben.system.service.SysRoleService;
  * @since on  2022/6/21
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements SysRoleService {
 
 

@@ -1,11 +1,15 @@
 package top.werls.vben.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.time.LocalDateTime;
 
 /**
  * @author leejiawei
@@ -14,9 +18,10 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @MapperScan("top.werls.vben.**.mapper*")
-public class MybatisPlusConfig {
+public class MybatisPlusConfig implements MetaObjectHandler {
     /**
      * 分页插件
+     *
      * @return
      */
 //    @Bean
@@ -27,4 +32,23 @@ public class MybatisPlusConfig {
         return interceptor;
     }
 
+    /**
+     * 插入元对象字段填充（用于插入时对公共字段的填充）
+     *
+     * @param metaObject 元对象
+     */
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        this.strictInsertFill(metaObject, "createTime", LocalDateTime::now, LocalDateTime.class);
+    }
+
+    /**
+     * 更新元对象字段填充（用于更新时对公共字段的填充）
+     *
+     * @param metaObject 元对象
+     */
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        this.strictUpdateFill(metaObject, "updateTime", LocalDateTime::now, LocalDateTime.class);
+    }
 }

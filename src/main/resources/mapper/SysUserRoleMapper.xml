@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.werls.vben.system.mapper.SysUserRoleMapper">
     <select id="getByRid" resultType="top.werls.vben.system.entity.SysUser">
-        select *
+        select u.*
         from vben_sys_user u left join vben_sys_user_role ur on u.uid = ur.uid
         where ur.rid = #{rid}
     </select>
     <select id="getByUid" resultType="top.werls.vben.system.entity.SysRole">
-        select *
+        select r.*
         from vben_sys_role r left join vben_sys_user_role ur on r.rid = ur.rid
         where ur.uid = #{uid}
     </select>

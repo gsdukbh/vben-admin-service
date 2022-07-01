@@ -24,6 +24,7 @@ public class SysUser extends BaseEntity {
     private String username;
 
     @Schema(description = "密码", example = "123456", required = true)
+
     private String password;
     @Schema(name = "加密盐")
     private String salt;
@@ -48,5 +49,6 @@ public class SysUser extends BaseEntity {
     private boolean credentialsNonExpired;
     @Schema(description = "账户未锁定")
     private boolean accountNonLocked;
+    private Integer deptId;
 
 }

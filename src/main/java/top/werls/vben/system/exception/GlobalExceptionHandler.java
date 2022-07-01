@@ -1,5 +1,6 @@
 package top.werls.vben.system.exception;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 全局异常处理
+ *
  * @author leejiawei
  * @version TODO
  * @since on  2022/2/8
@@ -25,4 +27,10 @@ public class GlobalExceptionHandler {
         return ResultData.systemError(e.getMessage());
     }
 
+    @ExceptionHandler(ExpiredJwtException.class)
+    public ResultData<String> defaultExpiredJwtExceptionHandler(Exception e, HttpServletResponse response) {
+        log.error("Exception:{}", e.getMessage());
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        return ResultData.systemError(e.getMessage());
+    }
 }

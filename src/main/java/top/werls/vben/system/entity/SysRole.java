@@ -14,6 +14,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @TableName("vben_sys_role")
+@Schema(title = "role",description = "角色")
 public class SysRole extends BaseEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 211L;

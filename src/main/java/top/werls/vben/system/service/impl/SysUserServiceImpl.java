@@ -1,7 +1,9 @@
 package top.werls.vben.system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.werls.vben.common.utils.JwtTokenUtils;
+import top.werls.vben.common.utils.crypto.asymmetric.RSA;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
 import top.werls.vben.system.mapper.SysUserMapper;
@@ -20,15 +23,16 @@ import top.werls.vben.system.vo.LoginVo;
 import top.werls.vben.system.vo.UserInfoVo;
 
 import javax.annotation.Resource;
+import java.security.interfaces.RSAPrivateKey;
 import java.util.Collection;
 import java.util.List;
 
 @Service
 @Slf4j
-@Transactional(rollbackFor = Exception.class)
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
-
+    @Value("${env.jwt.privateKey}")
+    private RSAPrivateKey key;
     @Resource
     private UserDetailsServiceImpl userDetailsService;
     @Resource
@@ -69,7 +73,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public SysUser getByUsername(String username) {
-        return baseMapper.getByUsername(username);
+        var  user = new  QueryWrapper<SysUser>();
+        user.lambda().eq(SysUser::getUsername,username);
+        return super.getOne(user);
     }
 
     /**
@@ -91,9 +97,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * @param user
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean addUser(SysUser user) {
-        return false;
+        try {
+            var salt = RSA.signToBase64(user.getUsername() + System.currentTimeMillis(), key);
+            user.setSalt(salt);
+            save(user);
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

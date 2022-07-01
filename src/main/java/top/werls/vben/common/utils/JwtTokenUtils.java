@@ -1,8 +1,8 @@
 package top.werls.vben.common.utils;
 
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,6 +41,7 @@ public class JwtTokenUtils {
                 .setClaims(claims)
                 .setId(UUID.randomUUID().toString())
                 .setExpiration(getExpirationDate())
+                .compressWith(CompressionCodecs.DEFLATE)
                 .signWith(key)
                 .compact();
     }
@@ -50,6 +51,7 @@ public class JwtTokenUtils {
                 .setClaims(claims)
                 .setId(UUID.randomUUID().toString())
                 .setExpiration(getExpirationDate(time))
+                .compressWith(CompressionCodecs.DEFLATE)
                 .signWith(key)
                 .compact();
     }

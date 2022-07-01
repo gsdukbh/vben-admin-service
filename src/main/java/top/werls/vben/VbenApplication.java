@@ -14,11 +14,10 @@ public class VbenApplication {
     public static void main(String[] args) {
         var context = SpringApplication.run(VbenApplication.class, args);
         var env = context.getEnvironment();
-        var applicationName = context.getApplicationName();
+        var applicationName = env.getProperty("env.appName");
         var version = env.getProperty("env.version");
         var port = env.getProperty("server.port");
         var databaseUrl = env.getProperty("spring.datasource.url");
-        log.info("VbenApplication is running...");
         log.info("""
                 
                 |===========================================================
