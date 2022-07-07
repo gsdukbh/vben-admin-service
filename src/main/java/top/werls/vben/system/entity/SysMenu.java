@@ -38,7 +38,7 @@ public class SysMenu extends BaseEntity implements Serializable {
 
     @Schema(name = "组件路径")
     private String component;
-
+    @Schema(name = "重定向")
     private String redirect;
 
     private String title;
@@ -49,30 +49,52 @@ public class SysMenu extends BaseEntity implements Serializable {
     private Integer orderNo;
 
     @Schema(description = "启用")
-    private Integer status;
+    private Boolean status;
 
     @Schema(description = "类型")
     private Integer type;
 
+    /**
+     * 隐藏菜单
+     */
     @Schema(description = "隐藏菜单")
     private Boolean hideMenu;
 
     @Schema(description = "父目录id")
     private Integer parentId;
 
+    /**
+     * 固定标签
+     */
     @Schema(description = "固定标签")
     private Boolean affix;
 
+    /**
+     *如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true
+     */
     @Schema(description = "如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true")
     private Boolean carryAram;
 
+    /**
+     * 内嵌iframe的地址
+     */
+    @Schema(description = "内嵌iframe的地址")
     private String frameSrc;
 
+    /**
+     * 当前路由不再标签页显示
+     */
     @Schema(description = "当前路由不再标签页显示")
     private Boolean hideTab;
-
+    /**
+     * 隐藏该路由在面包屑上面的显示
+     */
+    @Schema(description = "隐藏该路由在面包屑上面的显示")
     private Boolean hideBreadcrumb;
 
+    /**
+     * 忽略keep alive 缓存
+     */
     @Schema(description = "忽略keep alive 缓存")
     private Boolean ignoreKeepAlive;
 

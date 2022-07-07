@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import top.werls.vben.system.entity.SysMenu;
 import top.werls.vben.system.mapper.SysMenuMapper;
 import top.werls.vben.system.service.SysMenuService;
+import top.werls.vben.system.vo.MenuVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,4 +21,13 @@ import top.werls.vben.system.service.SysMenuService;
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {
 
+    /**
+     * 获取所有菜单
+     *
+     * @return {@link List < MenuVo >} 菜单目录树
+     */
+    @Override
+    public List<MenuVo> getMenuVoList() {
+        return null;
+    }
 }
