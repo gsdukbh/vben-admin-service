@@ -1,5 +1,6 @@
 package top.werls.vben.system.service.impl;
 
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -11,9 +12,7 @@ import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
 import top.werls.vben.system.mapper.SysUserMapper;
 import top.werls.vben.system.service.SysUserRoleService;
-import top.werls.vben.system.service.SysUserService;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 

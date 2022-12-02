@@ -2,6 +2,7 @@ package top.werls.vben.system.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import top.werls.vben.system.entity.SysDept;
 
 /**
@@ -12,6 +13,6 @@ import top.werls.vben.system.entity.SysDept;
  * @author Jiawei Lee
  * @since 2022-06-30
  */
-public interface SysDeptMapper extends BaseMapper<SysDept> {
+@Mapper public interface SysDeptMapper extends BaseMapper<SysDept> {
 
 }

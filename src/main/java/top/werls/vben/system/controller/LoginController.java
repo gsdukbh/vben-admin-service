@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import top.werls.vben.system.service.SysUserService;
 import top.werls.vben.system.vo.LoginVo;
 import top.werls.vben.system.vo.UserInfoVo;
 
-import javax.annotation.Resource;
+
 import java.security.Principal;
 
 

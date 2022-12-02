@@ -2,6 +2,7 @@ package top.werls.vben.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -22,9 +23,7 @@ import top.werls.vben.system.service.SysUserService;
 import top.werls.vben.system.vo.LoginVo;
 import top.werls.vben.system.vo.UserInfoVo;
 
-import javax.annotation.Resource;
 import java.security.interfaces.RSAPrivateKey;
-import java.util.Collection;
 import java.util.List;
 
 @Service

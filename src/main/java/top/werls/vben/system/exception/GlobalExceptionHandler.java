@@ -1,13 +1,14 @@
 package top.werls.vben.system.exception;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import top.werls.vben.common.utils.ResultData;
 
-import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * 全局异常处理
