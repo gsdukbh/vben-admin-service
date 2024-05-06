@@ -15,10 +15,10 @@ public class LoginParam implements Serializable {
     @Serial
     private static final long serialVersionUID = -1L;
     @NotNull(message = "不能为空")
-    @Schema(description = "用户名", required = true, example = "vben")
+    @Schema(description = "用户名",  example = "vben")
     private String username;
     @NotNull(message = "不能为空")
-    @Schema(description = "密码", required = true, example = "123456")
+    @Schema(description = "密码",  example = "123456")
     private String password;
 }
 

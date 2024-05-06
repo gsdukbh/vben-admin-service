@@ -1,7 +1,6 @@
 package top.werls.vben.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +27,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
+public class SysUserServiceImpl  implements SysUserService {
 
     @Value("${env.jwt.privateKey}")
     private RSAPrivateKey key;
@@ -72,9 +71,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public SysUser getByUsername(String username) {
-        var  user = new  QueryWrapper<SysUser>();
-        user.lambda().eq(SysUser::getUsername,username);
-        return super.getOne(user);
+//        var  user = new  QueryWrapper<SysUser>();
+//        user.lambda().eq(SysUser::getUsername,username);
+//        return super.getOne(user);
+        return null;
     }
 
     /**
@@ -102,7 +102,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         try {
             var salt = RSA.signToBase64(user.getUsername() + System.currentTimeMillis(), key);
             user.setSalt(salt);
-            save(user);
+            // todo
+//            save(user);
             return true;
         } catch (Exception e) {
             throw new RuntimeException(e);

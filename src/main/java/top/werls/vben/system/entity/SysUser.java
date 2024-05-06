@@ -1,8 +1,6 @@
 package top.werls.vben.system.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,23 +11,23 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Schema(description = "用户实体类")
-@TableName("vben_sys_user")
+
 public class SysUser extends BaseEntity {
     @Serial
     private static final long serialVersionUID = 1L;
-    @TableId(type = IdType.ASSIGN_ID)
+
     private Long uid;
 
-    @Schema(description = "用户名", example = "admin", required = true)
+    @Schema(description = "用户名", example = "admin")
     private String username;
 
-    @Schema(description = "密码", example = "123456", required = true)
+    @Schema(description = "密码", example = "123456")
 
     private String password;
     @Schema(name = "加密盐")
     private String salt;
 
-    @Schema(description = "电话", example = "1231", required = true)
+    @Schema(description = "电话", example = "1231")
     private String phone;
     @Schema(description = "邮箱")
     private String email;

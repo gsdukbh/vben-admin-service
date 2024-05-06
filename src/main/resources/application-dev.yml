@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: ${env.appName}
+  messages:
+    basename: i18n
+    encoding: UTF-8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+    locations:
+      - classpath:sql
+    schemas:
+      - vben_admin
+    clean-disabled: true
+logging:
+  config: classpath:logback-spring-dev.xml
+  file:
+    path: classpath:/
+    name: log
+  charset:
+    file: UTF-8
+env:
+  appName: 'vben admin service'
+  version: '0.0.1'
+  isEnableSwagger: true
+  jwt:
+    expire: 30
+    tokenHeader: Authorization
+    tokenPrefix: 'Bearer'
+    privateKey: classpath:private.pem
+    publicKey: classpath:public.pem
+mybatis-plus:
+  global-config:
+    banner: false
+server:
+  port: 9992

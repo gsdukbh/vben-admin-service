@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResultData<String> defaultExceptionHandler(Exception e, HttpServletResponse response) {
         log.error("Exception:{}", e.getMessage());
-        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        response.setStatus(HttpServletResponse.SC_OK);
         return ResultData.systemError(e.getMessage());
     }
 
@@ -32,6 +32,6 @@ public class GlobalExceptionHandler {
     public ResultData<String> defaultExpiredJwtExceptionHandler(Exception e, HttpServletResponse response) {
         log.error("Exception:{}", e.getMessage());
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-        return ResultData.systemError(e.getMessage());
+        return ResultData.notAuth(e.getMessage());
     }
 }

@@ -1,6 +1,6 @@
 package top.werls.vben.system.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.werls.vben.system.entity.SysRole;
@@ -14,7 +14,7 @@ import java.util.List;
  * @since on 2022/6/17
  */
 @Mapper
-public interface SysRoleMapper extends BaseMapper<SysRole> {
+public interface SysRoleMapper  {
 
   /**
    * 根据角色id获取角色

@@ -1,18 +1,17 @@
 package top.werls.vben;
 
-import org.apache.commons.lang3.StringUtils;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.keygen.Base64StringKeyGenerator;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import top.werls.vben.common.utils.crypto.asymmetric.RSA;
 import top.werls.vben.common.utils.crypto.symmetric.DES;
 
-import javax.annotation.Resource;
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import java.security.NoSuchAlgorithmException;
+
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Arrays;
@@ -25,7 +24,7 @@ class VbenApplicationTests {
     @Value("${env.jwt.publicKey}")
     private RSAPublicKey publicKey;
 
-    @Resource
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Test

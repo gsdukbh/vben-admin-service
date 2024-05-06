@@ -1,16 +1,13 @@
 package top.werls.vben.system.service;
 
 import com.google.gson.Gson;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import top.werls.vben.system.entity.SysDept;
 
-import javax.annotation.Resource;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jiawei Lee
@@ -40,7 +37,7 @@ class SysDeptServiceTest {
             entity.setParentId(i);
             list.add(entity);
         }
-        service.saveBatch(list);
+//        service.saveBatch(list);
     }
     @Test
     void getListVo() {

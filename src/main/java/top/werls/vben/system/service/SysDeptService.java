@@ -1,7 +1,7 @@
 package top.werls.vben.system.service;
 
 
-import com.baomidou.mybatisplus.extension.service.IService;
+
 import top.werls.vben.system.entity.SysDept;
 import top.werls.vben.system.vo.DeptVo;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @author Jiawei Lee
  * @since 2022-06-30
  */
-public interface SysDeptService extends IService<SysDept> {
+public interface SysDeptService  {
     /**
      * 获取部门目录
      *

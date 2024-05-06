@@ -1,6 +1,7 @@
 package top.werls.vben.system.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
@@ -13,7 +14,7 @@ import java.util.List;
  * @version TODO
  * @since on  2022/6/18
  */
-public interface SysUserRoleService extends IService<SysUserRole> {
+public interface SysUserRoleService  {
     /**
      * 通过 角色id 获取用户
      * @param rid 角色id

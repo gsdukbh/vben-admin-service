@@ -1,7 +1,6 @@
 package top.werls.vben.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import top.werls.vben.system.entity.SysRole;
@@ -18,7 +17,7 @@ import java.util.List;
  * @since on  2022/6/21
  */
 @Service
-public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements SysUserRoleService {
+public class SysUserRoleServiceImpl implements SysUserRoleService {
 
     /**
      * 通过 角色id 获取用户
@@ -28,7 +27,7 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Override
     public List<SysUser> getByRid(Long rid) {
-        return baseMapper.getByRid(rid);
+        return null;
     }
 
     /**
@@ -39,6 +38,6 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Override
     public List<SysRole> getByUid(Long uid) {
-        return baseMapper.getByUid(uid);
+        return null;
     }
 }
