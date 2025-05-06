@@ -6,11 +6,14 @@ spring:
   messages:
     basename: i18n
     encoding: UTF-8
+  jpa:
+    hibernate:
+      ddl-auto: update
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://{your mysql ip}:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-    username: # your username
-    password: # your password
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root # your username
+    password: 123456 # your password
   flyway:
     enabled: true
     baseline-on-migrate: true
@@ -36,8 +39,5 @@ env:
     tokenPrefix: 'Bearer'
     privateKey: classpath:private.pem
     publicKey: classpath:public.pem
-mybatis-plus:
-  global-config:
-    banner: false
 server:
   port: 9992

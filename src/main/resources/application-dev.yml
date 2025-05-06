@@ -4,9 +4,11 @@ spring:
   messages:
     basename: i18n
     encoding: UTF-8
+  jpa:
+    show-sql: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/vben_admin?characterEncoding=UTF-8&useUnicode=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
   flyway:
@@ -34,8 +36,5 @@ env:
     tokenPrefix: 'Bearer'
     privateKey: classpath:private.pem
     publicKey: classpath:public.pem
-mybatis-plus:
-  global-config:
-    banner: false
 server:
   port: 9992

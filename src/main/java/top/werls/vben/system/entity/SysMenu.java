@@ -18,7 +18,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-
 @Schema(name = "SysMenu对象", description = "")
 public class SysMenu extends BaseEntity implements Serializable {
 

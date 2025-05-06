@@ -2,6 +2,10 @@ package top.werls.vben.system.entity;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,11 +15,12 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Schema(description = "用户实体类")
-
+@Entity()
 public class SysUser extends BaseEntity {
     @Serial
     private static final long serialVersionUID = 1L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long uid;
 
     @Schema(description = "用户名", example = "admin")
