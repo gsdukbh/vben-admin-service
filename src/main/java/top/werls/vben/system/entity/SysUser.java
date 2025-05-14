@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.io.Serial;
 import java.util.Objects;
 import lombok.Data;
@@ -16,8 +18,11 @@ import org.hibernate.proxy.HibernateProxy;
 @Getter
 @Setter
 @Schema(description = "用户实体类")
-@Entity()
-public class SysUser extends BaseEntity {
+@Entity
+@Table(name = "SysUser", uniqueConstraints = {
+    @UniqueConstraint(name = "uc_sysuser_username", columnNames = {"username"})
+})
+public class SysUser {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id

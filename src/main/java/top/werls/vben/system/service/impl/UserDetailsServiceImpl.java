@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
 import top.werls.vben.system.mapper.SysUserMapper;
+import top.werls.vben.system.repository.UserRepository;
 import top.werls.vben.system.service.SysUserRoleService;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-
+    private UserRepository sysUserService;
 
     @Resource
     private SysUserRoleService sysUserRoleService;
@@ -41,7 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        SysUser sysUser = sysUserService.getByUsername(username);
+        SysUser sysUser = sysUserService.findByUsername(username);
 
         if (sysUser == null) {
             throw new UsernameNotFoundException("用户不存在");

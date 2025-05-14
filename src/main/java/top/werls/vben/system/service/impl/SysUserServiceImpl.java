@@ -15,7 +15,6 @@ import top.werls.vben.common.utils.JwtTokenUtils;
 import top.werls.vben.common.utils.crypto.asymmetric.RSA;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
-import top.werls.vben.system.mapper.SysUserMapper;
 import top.werls.vben.system.param.LoginParam;
 import top.werls.vben.system.service.SysUserRoleService;
 import top.werls.vben.system.service.SysUserService;

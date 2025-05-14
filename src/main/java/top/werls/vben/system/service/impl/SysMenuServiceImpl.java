@@ -1,10 +1,7 @@
 package top.werls.vben.system.service.impl;
 
-
-
 import org.springframework.stereotype.Service;
-import top.werls.vben.system.entity.SysMenu;
-import top.werls.vben.system.mapper.SysMenuMapper;
+import top.werls.vben.system.repository.SysMenuRepository;
 import top.werls.vben.system.service.SysMenuService;
 import top.werls.vben.system.vo.MenuVo;
 
@@ -20,6 +17,13 @@ import java.util.List;
  */
 @Service
 public class SysMenuServiceImpl  implements SysMenuService {
+
+
+    private SysMenuRepository sysMenuRepository;
+
+    public SysMenuServiceImpl(SysMenuRepository sysMenuRepository) {
+        this.sysMenuRepository = sysMenuRepository;
+    }
 
     /**
      * 获取所有菜单
