@@ -1,5 +1,9 @@
 package top.werls.vben.system.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -21,11 +25,14 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Schema(title = "SysDept",description = "部门")
+@Entity()
 public class SysDept extends BaseEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String deptName;
     private String remark;

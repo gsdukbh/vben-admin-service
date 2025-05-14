@@ -21,8 +21,7 @@ import java.util.List;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Resource
-    private SysUserMapper sysUserService;
+
 
     @Resource
     private SysUserRoleService sysUserRoleService;
