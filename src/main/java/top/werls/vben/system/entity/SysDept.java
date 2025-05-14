@@ -22,8 +22,8 @@ import lombok.Setter;
  * @author Jiawei Lee
  * @since 2022-06-30
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 @Schema(title = "SysDept",description = "部门")
 @Entity()
 public class SysDept extends BaseEntity implements Serializable {

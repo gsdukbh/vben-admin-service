@@ -11,10 +11,12 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
+@Setter
 @Schema(title = "role",description = "角色")
 @Entity
 public class SysRole extends BaseEntity implements Serializable {

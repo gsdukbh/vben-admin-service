@@ -2,11 +2,9 @@ package top.werls.vben.system.service.impl;
 
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
-import top.werls.vben.system.entity.SysUserRole;
-import top.werls.vben.system.mapper.SysUserRoleMapper;
+import top.werls.vben.system.repository.SysRoleRepository;
 import top.werls.vben.system.service.SysUserRoleService;
 
 import java.util.List;
@@ -19,6 +17,13 @@ import java.util.List;
 @Service
 public class SysUserRoleServiceImpl implements SysUserRoleService {
 
+
+    private final SysRoleRepository sysRoleRepository;
+
+    public SysUserRoleServiceImpl(SysRoleRepository sysRoleRepository) {
+        this.sysRoleRepository = sysRoleRepository;
+    }
+
     /**
      * 通过 角色id 获取用户
      *
@@ -27,7 +32,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      */
     @Override
     public List<SysUser> getByRid(Long rid) {
-        return null;
+        return sysRoleRepository.findByRoleId(rid);
     }
 
     /**
@@ -38,6 +43,6 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
      */
     @Override
     public List<SysRole> getByUid(Long uid) {
-        return null;
+        return sysRoleRepository.findByUserId(uid);
     }
 }

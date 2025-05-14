@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serial;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Jiawei Lee
@@ -16,8 +18,8 @@ import java.io.Serial;
  * @since on  2022/6/17
  */
 
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Setter
+@Getter
 @Entity
 public class SysUserRole extends BaseEntity {
     @Serial

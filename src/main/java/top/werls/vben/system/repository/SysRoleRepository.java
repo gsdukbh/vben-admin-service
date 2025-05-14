@@ -27,6 +27,6 @@ public interface SysRoleRepository extends CrudRepository<SysRole, Integer> {
     List<SysRole> findByUserId(Long userId);
 
     @Query("select u from SysUser u  left  join SysUserRole ur on u.uid =ur.uid where ur.rid = ?1")
-    List<SysUser> findByRoleId(Integer rid);
+    List<SysUser> findByRoleId(Long rid);
 
 }
