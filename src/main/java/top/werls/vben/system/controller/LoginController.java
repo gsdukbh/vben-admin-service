@@ -2,7 +2,6 @@ package top.werls.vben.system.controller;
 
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -16,8 +15,8 @@ import top.werls.vben.common.utils.ResultData;
 import top.werls.vben.config.SwaggerConfig;
 import top.werls.vben.system.param.LoginParam;
 import top.werls.vben.system.service.SysUserService;
-import top.werls.vben.system.vo.LoginVo;
-import top.werls.vben.system.vo.UserInfoVo;
+import top.werls.vben.system.dto.LoginVo;
+import top.werls.vben.system.dto.UserInfoVo;
 
 
 import java.security.Principal;

@@ -1,4 +1,4 @@
-package top.werls.vben.system.vo;
+package top.werls.vben.system.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

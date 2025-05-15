@@ -9,11 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.io.Serial;
-import java.util.Objects;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.proxy.HibernateProxy;
+
 
 @Getter
 @Setter
@@ -22,7 +20,7 @@ import org.hibernate.proxy.HibernateProxy;
 @Table(name = "SysUser", uniqueConstraints = {
     @UniqueConstraint(name = "uc_sysuser_username", columnNames = {"username"})
 })
-public class SysUser {
+public class SysUser extends  BaseEntity{
     @Serial
     private static final long serialVersionUID = 1L;
     @Id

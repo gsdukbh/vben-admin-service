@@ -2,8 +2,7 @@ package top.werls.vben.system.service;
 
 
 
-import top.werls.vben.system.entity.SysDept;
-import top.werls.vben.system.vo.DeptVo;
+import top.werls.vben.system.dto.DeptVo;
 
 import java.util.List;
 

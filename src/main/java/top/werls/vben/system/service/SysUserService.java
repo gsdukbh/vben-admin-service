@@ -4,8 +4,8 @@ package top.werls.vben.system.service;
 
 import top.werls.vben.system.entity.SysUser;
 import top.werls.vben.system.param.LoginParam;
-import top.werls.vben.system.vo.LoginVo;
-import top.werls.vben.system.vo.UserInfoVo;
+import top.werls.vben.system.dto.LoginVo;
+import top.werls.vben.system.dto.UserInfoVo;
 
 public interface SysUserService  {
 

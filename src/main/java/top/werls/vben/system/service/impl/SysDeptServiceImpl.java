@@ -2,11 +2,10 @@ package top.werls.vben.system.service.impl;
 
 
 
-import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 import top.werls.vben.system.entity.SysDept;
 import top.werls.vben.system.service.SysDeptService;
-import top.werls.vben.system.vo.DeptVo;
+import top.werls.vben.system.dto.DeptVo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,8 @@
-package top.werls.vben.system.vo;
+package top.werls.vben.system.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import top.werls.vben.system.entity.SysDept;
 
 import java.util.ArrayList;

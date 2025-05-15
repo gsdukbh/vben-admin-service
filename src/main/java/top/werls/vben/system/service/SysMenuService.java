@@ -2,8 +2,7 @@ package top.werls.vben.system.service;
 
 
 
-import top.werls.vben.system.entity.SysMenu;
-import top.werls.vben.system.vo.MenuVo;
+import top.werls.vben.system.dto.MenuVo;
 
 import java.util.List;
 

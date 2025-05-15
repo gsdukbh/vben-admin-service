@@ -1,7 +1,6 @@
 package top.werls.vben.system.service.impl;
 
 
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,8 +18,8 @@ import top.werls.vben.system.param.LoginParam;
 import top.werls.vben.system.repository.UserRepository;
 import top.werls.vben.system.service.SysUserRoleService;
 import top.werls.vben.system.service.SysUserService;
-import top.werls.vben.system.vo.LoginVo;
-import top.werls.vben.system.vo.UserInfoVo;
+import top.werls.vben.system.dto.LoginVo;
+import top.werls.vben.system.dto.UserInfoVo;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.util.List;

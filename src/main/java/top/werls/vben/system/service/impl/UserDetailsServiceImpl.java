@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import top.werls.vben.system.entity.SysRole;
 import top.werls.vben.system.entity.SysUser;
-import top.werls.vben.system.mapper.SysUserMapper;
 import top.werls.vben.system.repository.UserRepository;
 import top.werls.vben.system.service.SysUserRoleService;
 

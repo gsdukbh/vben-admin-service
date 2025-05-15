@@ -3,7 +3,7 @@ package top.werls.vben.system.service.impl;
 import org.springframework.stereotype.Service;
 import top.werls.vben.system.repository.SysMenuRepository;
 import top.werls.vben.system.service.SysMenuService;
-import top.werls.vben.system.vo.MenuVo;
+import top.werls.vben.system.dto.MenuVo;
 
 import java.util.List;
 
