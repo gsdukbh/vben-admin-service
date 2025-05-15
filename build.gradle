@@ -40,7 +40,9 @@ dependencies {
     def mysqlVersion = '8.3.0'
     def postgresql='42.7.3'
 
-    // mapstruct https://mapstruct.org/documentation
+    runtimeOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+    // mapstruct https://mapstruct.org/
     implementation 'org.mapstruct:mapstruct:1.6.3'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
 

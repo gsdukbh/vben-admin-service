@@ -2,9 +2,9 @@ package top.werls.vben.system.service;
 
 
 
-import top.werls.vben.system.dto.DeptVo;
-
 import java.util.List;
+import top.werls.vben.system.dto.DeptVo;
+import top.werls.vben.system.dto.SysDeptDto;
 
 /**
  * <p>
@@ -18,14 +18,14 @@ public interface SysDeptService  {
     /**
      * 获取部门目录
      *
-     * @return {@link List<DeptVo>} 部门树目录
+     * @return {@link List< DeptVo >} 部门树目录
      */
-    List<DeptVo> getListVo();
+    List<SysDeptDto> getListVo();
 
     /**
      * 获取此部门 下属目录
      * @param id 部门id
-     * @return {@link List<DeptVo>} 部门树目录
+     * @return {@link List<SysDeptDto>} 部门树目录
      */
-    List<DeptVo> getListVoById(Integer id);
+    List<SysDeptDto> getListVoById(Integer id);
 }
