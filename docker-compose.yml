@@ -1,14 +1,16 @@
 version: "3.0"
+
 services:
-  mysql8:
+  postgresql:
     image: bitnami/postgresql
     container_name: postgresql
-    command: |
-      postgres -c shared_preload_libraries=vectors.so -c 'search_path="$$user", public, vectors' -c logging_collector=on -c max_wal_size=2GB -c shared_buffers=512MB -c wal_compression=on
-
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_USER: root
-      POSTGRES_DB: vben_admin
+      POSTGRESQL_PASSWORD: 123456
+      POSTGRESQL_USERNAME: root
+      POSTGRESQL_DATABASE: vben_admin
+    volumes:
+      - postgresql_data:/bitnami/postgresql
+volumes:
+  postgresql_data:
