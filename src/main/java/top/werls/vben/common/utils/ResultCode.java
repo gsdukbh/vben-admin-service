@@ -1,16 +1,19 @@
 package top.werls.vben.common.utils;
 
+import lombok.Getter;
+
 /**
  * @author Jiawei Lee
  * @version TODO
  * @since on  2022/6/17
  */
+@Getter
 public enum ResultCode {
     /**
      * 成功
      */
-    SUCCESS(200, "成功"),
-    FAIL(503, "失败"),
+    SUCCESS(1, "成功"),
+    FAIL(0, "失败"),
     /**
      * 404 未找到
      */
@@ -36,7 +39,7 @@ public enum ResultCode {
      */
     SYSTEM_ERROR(500, "系统错误");
 
-    private int code;
+    private final int code;
     private String message;
 
 
@@ -47,14 +50,6 @@ public enum ResultCode {
 
     ResultCode(int code) {
         this.code = code;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
 }
